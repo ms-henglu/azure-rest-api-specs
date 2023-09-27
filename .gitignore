@@ -123,3 +123,15 @@ warnings.txt
 # Eng Tools
 eng/tools/TypeSpecValidation/dist
 !eng/tools/TypeSpecValidation/cmd/*.js
+
+# Armstrong API Test outputs
+**/tfplan
+**/log.txt
+**/terraform.tfstate
+**/terraform.tfstate.backup
+**/.terraform.tfstate.lock.info
+**/.terraform.lock.hcl
+**/.terraform
+**/armstrong_**/**
+**/traces
+**/ApiTestReport

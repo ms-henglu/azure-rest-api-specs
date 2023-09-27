@@ -17,13 +17,6 @@
                 "type": "DatasetReference"
               },
               "name": "USDCurrency"
-            },
-            {
-              "dataset": {
-                "referenceName": "CurrencyDatasetCAD",
-                "type": "DatasetReference"
-              },
-              "name": "CADSource"
             }
           ],
           "sinks": [
@@ -33,13 +26,6 @@
                 "type": "DatasetReference"
               },
               "name": "USDSink"
-            },
-            {
-              "dataset": {
-                "referenceName": "CADOutput",
-                "type": "DatasetReference"
-              },
-              "name": "CADSink"
             }
           ],
           "scriptLines": [
