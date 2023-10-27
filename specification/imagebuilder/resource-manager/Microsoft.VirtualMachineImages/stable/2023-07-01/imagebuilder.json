@@ -1496,6 +1496,7 @@
       "properties": {
         "source": {
           "$ref": "#/definitions/ImageTemplateSource",
+          "x-ms-mutability": ["create", "read"],
           "description": "Specifies the properties used to describe the source image."
         },
         "customize": {
@@ -1504,11 +1505,13 @@
             "$ref": "#/definitions/ImageTemplateCustomizer"
           },
           "x-ms-identifiers": [],
+          "x-ms-mutability": ["create", "read"],
           "description": "Specifies the properties used to describe the customization steps of the image, like Image source etc"
         },
         "optimize": {
           "type": "object",
           "description": "Specifies optimization to be performed on image.",
+          "x-ms-mutability": ["create", "read"],
           "properties": {
             "vmBoot": {
               "type": "object",
@@ -1532,6 +1535,7 @@
         },
         "validate": {
           "type": "object",
+          "x-ms-mutability": ["create", "read"],
           "description": "Configuration options and list of validations to be performed on the resulting image.",
           "properties": {
             "continueDistributeOnFailure": {
@@ -1564,6 +1568,7 @@
         },
         "errorHandling": {
           "type": "object",
+          "x-ms-mutability": ["create", "read"],
           "description": "Error handling options upon a build failure",
           "properties": {
             "onCustomizerError": {
@@ -1599,14 +1604,17 @@
           "minimum": 0,
           "maximum": 960,
           "default": 0,
+          "x-ms-mutability": ["create", "read"],
           "description": "Maximum duration to wait while building the image template (includes all customizations, optimization, validations, and distributions). Omit or specify 0 to use the default (4 hours)."
         },
         "vmProfile": {
           "$ref": "#/definitions/ImageTemplateVmProfile",
+          "x-ms-mutability": ["create", "read"],
           "description": "Describes how virtual machine is set up to build images"
         },
         "stagingResourceGroup": {
           "type": "string",
+          "x-ms-mutability": ["create", "read"],
           "description": "The staging resource group id in the same subscription as the image template that will be used to build the image. If this field is empty, a resource group with a random name will be created. If the resource group specified in this field doesn't exist, it will be created with the same name. If the resource group specified exists, it must be empty and in the same region as the image template. The resource group created will be deleted during template deletion if this field is empty or the resource group specified doesn't exist, but if the resource group specified exists the resources created in the resource group will be deleted during template deletion and the resource group itself will remain."
         },
         "exactStagingResourceGroup": {
@@ -1722,13 +1730,10 @@
           },
           "description": "The user-specified tags associated with the image template."
         },
-        "distribute": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/ImageTemplateDistributor"
-          },
-          "x-ms-identifiers": [],
-          "description": "The distribution targets where the image output needs to go to."
+        "properties": {
+          "x-ms-client-flatten": true,
+          "$ref": "#/definitions/ImageTemplateProperties",
+          "description": "The properties of the image template"
         }
       },
       "description": "Parameters for updating an image template."
